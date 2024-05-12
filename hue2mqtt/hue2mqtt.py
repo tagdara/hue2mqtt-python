@@ -146,6 +146,7 @@ class Hue2MQTT:
 
     def publish_light(self, light: LightInfo) -> None:
         """Publish information about a light to MQTT."""
+        logger.info(f"PUBLIGHT {light.uniqueid} {light}")
         self._mqtt.publish(f"light/{light.uniqueid}", light, retain=True)
 
     def publish_group(self, group: GroupInfo) -> None:
